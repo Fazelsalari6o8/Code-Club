@@ -9,3 +9,9 @@ body {
   max-width: 1440px;
   margin: auto;
 }
+
+.active {
+  background-color: #40d3a9;
+  border-radius: 8px;
+  color: #ecfbf6 !important;
+}
