@@ -1,0 +1,23 @@
+.login {
+  text-decoration: none;
+  color: #40d3a9;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s linear;
+}
+.login:hover {
+  color: #1a5444;
+}
+
+.profile {
+  width: 36px;
+  height: 36px;
+  padding: 6px;
+  margin: 6px 24px 6px 0 !important;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.profile:hover {
+  background-color: #33a987;
+}

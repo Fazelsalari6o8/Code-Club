@@ -1,14 +1,29 @@
+import { useState } from "react";
+
 // react-router-dom
 import { Link, NavLink } from "react-router-dom";
+
+// components
+import Menu from "./Menu.jsx";
+import RegisterBox from "./RegisterBox.jsx";
+import DrawerMenu from "./DrawerMenu.jsx";
 
 // mui
 import { AppBar, Box, Container, Toolbar, Typography } from "@mui/material";
 
-// styles
-import styles from "./Header.module.css";
+// iconsax
 import { HambergerMenu, Profile, ShoppingCart } from "iconsax-react";
 
+// styles
+import styles from "./Header.module.css";
+
 function Header() {
+  const [open, setOpen] = useState(false);
+
+  const toggleDrawer = (newOpen) => () => {
+    setOpen(newOpen);
+  };
+
   return (
     // start header
     <AppBar
@@ -74,75 +89,17 @@ function Header() {
                 <NavLink to="/about-us">درباره ما</NavLink>
               </li>
             </ul>
+            {/* <Menu /> */}
           </Box>
           {/* end navbar */}
 
           {/* start register box */}
-          <Box
-            component="div"
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "space-between",
-              height: "48px",
-            }}
-          >
-            <Typography
-              component="p"
-              variant="p"
-              sx={{
-                display: {
-                  xs: "flex",
-                  md: "none",
-                },
-                alignItems: "center",
-                cursor: "pointer",
-              }}
-            >
-              <HambergerMenu size="24" color="#35816c" />
-            </Typography>
-
-            <Typography
-              component="p"
-              variant="p"
-              mr={3}
-              display="flex"
-              alignItems="center"
-            >
-              <Link to="/cart" style={{ display: "flex" }}>
-                <ShoppingCart size="24" color="#267f65" />
-              </Link>
-            </Typography>
-
-            <Typography
-              component="p"
-              variant="p"
-              mr={3}
-              sx={{ display: { xs: "none", md: "block" } }}
-            >
-              <Link to="/login" className={styles.login}>
-                ورود
-              </Link>
-            </Typography>
-
-            <Typography
-              component="p"
-              variant="p"
-              bgcolor="primary.500"
-              className={styles.profile}
-              sx={{
-                display: {
-                  xs: "none",
-                  md: "block",
-                },
-              }}
-            >
-              <Link to="/dashboard">
-                <Profile size="24" color="#ecfbf6" />
-              </Link>
-            </Typography>
-          </Box>
+          <RegisterBox toggleDrawer={toggleDrawer} />
           {/* end register box */}
+
+          {/* start drawer Menu */}
+          <DrawerMenu open={open} toggleDrawer={toggleDrawer} />
+          {/* end drawer Menu */}
         </Toolbar>
       </Container>
     </AppBar>
