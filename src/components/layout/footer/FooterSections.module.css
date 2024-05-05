@@ -1,0 +1,38 @@
+.list {
+  list-style: none;
+  margin-top: 12px;
+}
+.list li {
+  margin-bottom: 8px;
+}
+.list a::before {
+  content: "";
+  margin-left: 3px;
+  display: inline-block;
+  width: 0px;
+  height: 12px;
+  background-color: #40d3a9;
+  border-radius: 50%;
+  transition: all 0.2s linear;
+}
+.list a {
+  text-decoration: none;
+  color: #0e1b17;
+  transition: all 0.2s linear;
+}
+.list a:hover::before {
+  width: 12px;
+}
+.list a:hover {
+  color: #267f65;
+}
+
+@media (max-width: 767.5px) {
+  .listLast {
+    display: flex;
+    align-items: center;
+  }
+  .listLast li {
+    margin-left: 8px;
+  }
+}
