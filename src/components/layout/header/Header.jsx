@@ -27,7 +27,7 @@ function Header() {
   return (
     // start header
     <AppBar
-      position="sticky"
+      position="fixed"
       sx={{
         bgcolor: "#ffffff00",
         height: { xs: "70px", md: "80px" },
