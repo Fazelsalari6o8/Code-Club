@@ -1,10 +1,10 @@
 // components
-import Intro from "../../intro/Intro.jsx";
+import HomeHeader from "../../intro/HomeHeader.jsx";
 
 function HomePage() {
   return (
     <>
-      <Intro />
+      <HomeHeader />
     </>
   );
 }
