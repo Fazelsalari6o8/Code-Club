@@ -8,6 +8,18 @@ const menuItem = [
   { path: "/about-us", title: "درباره ما" },
 ];
 
+const coursesOfferd = [
+  { courseTitle: "دوره های فرانت اند" },
+  { courseTitle: "دوره های بک اند" },
+  { courseTitle: "دوره های موبایل" },
+  { courseTitle: "دوره های امنیت" },
+  { courseTitle: "شبکه" },
+  { courseTitle: "دات نت" },
+  { courseTitle: "سی شارپ" },
+  { courseTitle: "دوره های یونیتی" },
+  { courseTitle: "دوره های فلاتر" },
+];
+
 function changeCss(tagEle) {
   if (window.scrollY > 32) {
     tagEle.style.top = "-32px";
@@ -21,4 +33,4 @@ function changeCss(tagEle) {
   }
 }
 
-export { menuItem, changeCss };
+export { menuItem, coursesOfferd, changeCss };
