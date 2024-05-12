@@ -4,6 +4,9 @@ import ReactDOM from "react-dom/client";
 // react-router-dom
 import { BrowserRouter } from "react-router-dom";
 
+// Apollo
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
 // mui
 import { ThemeProvider } from "@mui/material";
 import theme from "./mui/theme.js";
@@ -20,6 +23,12 @@ import App from "./App.jsx";
 // styles
 import "./styles/index.css";
 
+// apollo client
+const client = new ApolloClient({
+  uri: import.meta.env.VITE_GRAPHCMS_URI,
+  cache: new InMemoryCache(),
+});
+
 // create rtl cache
 // const cacheRtl = createCache({
 //   key: "muirtl",
@@ -27,13 +36,13 @@ import "./styles/index.css";
 // });
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  // <React.StrictMode>
-  <BrowserRouter>
-    {/* <CacheProvider value={cacheRtl}> */}
-    <ThemeProvider theme={theme}>
-      <App />
-    </ThemeProvider>
-    {/* </CacheProvider> */}
-  </BrowserRouter>
-  // </React.StrictMode>
+  <ApolloProvider client={client}>
+    <BrowserRouter>
+      {/* <CacheProvider value={cacheRtl}> */}
+      <ThemeProvider theme={theme}>
+        <App />
+      </ThemeProvider>
+      {/* </CacheProvider> */}
+    </BrowserRouter>
+  </ApolloProvider>
 );
