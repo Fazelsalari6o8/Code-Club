@@ -7,6 +7,9 @@ import { Box, Typography } from "@mui/material";
 // iconsax
 import { ArrowLeft, Microphone2, People, Timer1 } from "iconsax-react";
 
+// utils
+import { e2p, sp } from "../../../utils/replaceNumber.js";
+
 // image
 import bgCourseIcon from "../../../assets/images/bg-course-icon.svg";
 
@@ -47,7 +50,7 @@ function CardEl({
             p="4px 8px"
           >
             <People size="24" color="#40d3a9" style={{ marginLeft: "6px" }} />
-            {students}
+            {e2p(students)}
           </Typography>
           <Typography
             component="p"
@@ -61,7 +64,7 @@ function CardEl({
             p="4px 8px"
           >
             <Timer1 size="24" color="#40d3a9" style={{ marginLeft: "6px" }} />
-            {time} ساعت
+            {e2p(time)} ساعت
           </Typography>
           {courseStatus ? (
             <Typography
@@ -134,7 +137,7 @@ function CardEl({
             fontSize="1.1rem"
             fontWeight={700}
           >
-            {price} تومان
+            {sp(price)} تومان
           </Typography>
           <Link
             to={`/courses/${slug}`}
