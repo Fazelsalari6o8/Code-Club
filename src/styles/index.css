@@ -15,3 +15,18 @@ body {
   border-radius: 8px;
   color: #ecfbf6 !important;
 }
+
+.swiper-button-prev,
+.swiper-button-next {
+  background-color: #d9f6ee;
+  display: flex;
+  padding: 6px;
+  margin-left: 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s linear;
+}
+.swiper-button-prev:hover,
+.swiper-button-next:hover {
+  background-color: #b3eddd;
+}
