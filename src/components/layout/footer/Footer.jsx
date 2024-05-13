@@ -15,6 +15,7 @@ function Footer() {
         maxWidth="lg"
         sx={{
           padding: { xs: "100px 24px 32px", md: "127px 32px 32px" },
+          mt: "60px",
         }}
       >
         <Grid container>
