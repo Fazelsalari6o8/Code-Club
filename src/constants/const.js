@@ -1,3 +1,8 @@
+// images
+import img_onlineLearning from "../assets/images/servicesImages/serv1.svg";
+import img_onlineTest from "../assets/images/servicesImages/serv2.svg";
+import img_onlineVideo from "../assets/images/servicesImages/serv3.svg";
+
 const menuItem = [
   { path: "/", title: "خانه" },
   { path: "/courses", title: "دوره ها" },
@@ -20,6 +25,12 @@ const coursesOfferd = [
   { courseTitle: "دوره های فلاتر" },
 ];
 
+const servicesCard = [
+  { title: "یادگیری آنلاین", image: img_onlineLearning, link: "/courses" },
+  { title: "آزمون های معتبر", image: img_onlineTest, link: "/courses/tests" },
+  { title: "مدرس های باتجربه", image: img_onlineVideo, link: "/teachers" },
+];
+
 function changeCss(tagEle) {
   if (window.scrollY > 32) {
     tagEle.style.top = "-32px";
@@ -33,4 +44,4 @@ function changeCss(tagEle) {
   }
 }
 
-export { menuItem, coursesOfferd, changeCss };
+export { menuItem, coursesOfferd, servicesCard, changeCss };
