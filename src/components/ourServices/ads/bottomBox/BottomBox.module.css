@@ -1,0 +1,21 @@
+.image1,
+.image2 {
+  position: absolute;
+  bottom: 0;
+}
+
+.image1 {
+  right: 15px;
+}
+
+@media (max-width: 1023.5px) {
+  .image1 {
+    width: 158.4px;
+    height: 209.63px;
+    right: 10.8px;
+  }
+  .image2 {
+    width: 180px;
+    height: 191.52px;
+  }
+}
