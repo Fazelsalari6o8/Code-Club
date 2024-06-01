@@ -3,6 +3,7 @@ import { Container, Grid, Typography } from "@mui/material";
 
 // components
 import ServicesCard from "./ServicesCard.jsx";
+import Ads from "./ads/Ads.jsx";
 
 // const
 import { servicesCard } from "../../constants/const.js";
@@ -27,6 +28,8 @@ function OurServices() {
           <ServicesCard service={service} index={index} key={index} />
         ))}
       </Grid>
+
+      <Ads />
     </Container>
   );
 }
