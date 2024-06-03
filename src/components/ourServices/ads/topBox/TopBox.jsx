@@ -46,7 +46,7 @@ function TopBox() {
           حرفه خود را به دست آورید.
         </Typography>
 
-        <Button text="مشاهده بیشتر" link="" mt="16px" />
+        <Button text="اطلاعات بیشتر" link="" mt="16px" />
       </Box>
 
       <Box

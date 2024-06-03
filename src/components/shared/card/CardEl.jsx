@@ -4,6 +4,9 @@ import { Link } from "react-router-dom";
 // mui
 import { Box, Typography } from "@mui/material";
 
+// components
+import Button from "../button/Button.jsx";
+
 // iconsax
 import { ArrowLeft, Microphone2, People, Timer1 } from "iconsax-react";
 
@@ -12,9 +15,6 @@ import { e2p, sp } from "../../../utils/replaceNumber.js";
 
 // image
 import bgCourseIcon from "../../../assets/images/bg-course-icon.svg";
-
-// styles
-import styles from "./CardEl.module.css";
 
 function CardEl({
   course: { title, price, students, time, courseStatus, slug, image },
@@ -129,7 +129,8 @@ function CardEl({
         display="flex"
         justifyContent="space-between"
       >
-        <button className={styles.signinButton}>ثبت نام</button>
+        <Button text="ثبت نام" fontWeight={700} />
+
         <Box component="div" textAlign="right">
           <Typography
             component="p"
