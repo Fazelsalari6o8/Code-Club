@@ -5,13 +5,14 @@ import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
 
 // mui
-import { Box, Container, Typography } from "@mui/material";
+import { Box, Container } from "@mui/material";
 
 // swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation } from "swiper/modules";
 
 // components
+import Title from "../shared/title/Title.jsx";
 import Loader from "../shared/loader/Loader.jsx";
 import Error from "../shared/error/Error.jsx";
 import CardEl from "../shared/card/CardEl.jsx";
@@ -30,17 +31,8 @@ function Courses() {
 
   return (
     <Container maxWidth="lg" sx={{ mt: 8, px: 3 }}>
-      <Typography
-        component="h3"
-        variant="h3"
-        fontSize={{ xs: "20px", lg: "24px" }}
-        fontWeight={700}
-        color="primary.800"
-        width="100%"
-        textAlign="center"
-      >
-        دوره ها
-      </Typography>
+      <Title text="دوره ها" />
+
       <Box
         component="div"
         display="flex"

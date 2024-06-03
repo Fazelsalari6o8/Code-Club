@@ -1,7 +1,8 @@
 // mui
-import { Container, Grid, Typography } from "@mui/material";
+import { Container, Grid } from "@mui/material";
 
 // components
+import Title from "../shared/title/Title.jsx";
 import ServicesCard from "./ServicesCard.jsx";
 import Ads from "./ads/Ads.jsx";
 
@@ -11,17 +12,7 @@ import { servicesCard } from "../../constants/const.js";
 function OurServices() {
   return (
     <Container maxWidth="lg" sx={{ mt: 8, px: 3 }}>
-      <Typography
-        component="h3"
-        variant="h3"
-        fontSize={{ xs: "20px", lg: "24px" }}
-        fontWeight={700}
-        color="primary.800"
-        width="100%"
-        textAlign="center"
-      >
-        خدمات ما
-      </Typography>
+      <Title text="خدمات ما" />
 
       <Grid container mt={3} sx={{ gap: { md: "120px" } }}>
         {servicesCard.map((service, index) => (
