@@ -5,6 +5,7 @@
   color: #1a5444;
   padding: 12px 48px;
   border-radius: 16px;
+  transition: all 0.3s linear;
 }
 .button:hover {
   background: linear-gradient(to top left, #8ce4cb, #33a987);
