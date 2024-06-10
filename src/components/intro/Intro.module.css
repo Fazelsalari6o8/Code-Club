@@ -14,14 +14,15 @@ h1 br {
   border-radius: 16px;
   text-decoration: none;
   font-weight: 700;
-  transition: all 0.3s linear;
+  transition: all 0.8s;
 }
 .coursesBtn {
-  background: linear-gradient(to bottom right, #8ce4cb, #33a987);
+  background-image: linear-gradient(-45deg, #8ce4cb, #33a987, #8ce4cb);
+  background-size: 250%;
   color: #1a5444;
 }
 .coursesBtn:hover {
-  background: linear-gradient(to top left, #8ce4cb, #33a987);
+  background-position: right;
 }
 .moreInfoBtn {
   border: 2px solid #40d3a9;

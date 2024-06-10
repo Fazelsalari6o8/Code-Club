@@ -4,9 +4,11 @@ import FooterSections from "./FooterSections";
 // mui
 import { Box, Container, Grid, Typography } from "@mui/material";
 
+// iconsax
+import { Heart } from "iconsax-react";
+
 // styles
 import styles from "./Footer.module.css";
-import { Heart } from "iconsax-react";
 
 function Footer() {
   return (
