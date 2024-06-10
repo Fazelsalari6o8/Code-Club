@@ -31,6 +31,36 @@ const servicesCard = [
   { title: "مدرس های باتجربه", image: img_onlineVideo, link: "/teachers" },
 ];
 
+const monthList = [
+  "فروردین",
+  "اردیبهشت",
+  "خرداد",
+  "تیر",
+  "مرداد",
+  "شهریور",
+  "مهر",
+  "آبان",
+  "آذر",
+  "دی",
+  "بهمن",
+  "اسفند",
+];
+const monthNumber = [
+  { "۰": 0 },
+  { "۱": 1 },
+  { "۲": 2 },
+  { "۳": 3 },
+  { "۴": 4 },
+  { "۵": 5 },
+  { "۶": 6 },
+  { "۷": 7 },
+  { "۸": 8 },
+  { "۹": 9 },
+  { "۱۰": 10 },
+  { "۱۱": 11 },
+  { "۱۲": 12 },
+];
+
 function changeCss(tagEle) {
   if (window.scrollY > 32) {
     tagEle.style.top = "-32px";
@@ -44,4 +74,11 @@ function changeCss(tagEle) {
   }
 }
 
-export { menuItem, coursesOfferd, servicesCard, changeCss };
+export {
+  menuItem,
+  coursesOfferd,
+  servicesCard,
+  monthList,
+  monthNumber,
+  changeCss,
+};
