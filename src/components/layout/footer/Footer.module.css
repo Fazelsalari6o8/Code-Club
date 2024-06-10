@@ -26,12 +26,13 @@
   font-size: 1rem;
   font-weight: 700;
   color: #1a5444;
-  background-image: linear-gradient(to bottom right, #8ce4cb, #33a987);
+  background-image: linear-gradient(-45deg, #8ce4cb, #33a987, #8ce4cb);
+  background-size: 300%;
   cursor: pointer;
-  transition: all 0.3s linear;
+  transition: all 0.8s;
 }
 .buttonEmail:hover {
-  background: linear-gradient(to top left, #8ce4cb, #33a987);
+  background-position: right;
 }
 
 @media (max-width: 768px) {

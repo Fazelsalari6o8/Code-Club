@@ -78,7 +78,7 @@ function BottomBox() {
 
       <Box component="div">
         <Typography
-          component="h3"
+          component="h4"
           variant="h5"
           color="primary.800"
           fontSize={{ xs: "18px", md: "24px" }}
