@@ -4,6 +4,7 @@ import CoursesOffered from "../../courses/CoursesOffered.jsx";
 import Courses from "../../courses/Courses.jsx";
 import OurServices from "../../ourServices/OurServices.jsx";
 import Articles from "../../articles/Articles.jsx";
+import AboutUs from "../aboutUs/AboutUs.jsx";
 
 function HomePage() {
   return (
@@ -13,6 +14,7 @@ function HomePage() {
       <Courses />
       <OurServices />
       <Articles />
+      <AboutUs />
     </>
   );
 }
