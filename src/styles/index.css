@@ -17,7 +17,9 @@ body {
 }
 
 .swiper-button-prev,
-.swiper-button-next {
+.swiper-button-next,
+.cm-swiper-button-prev,
+.cm-swiper-button-next {
   background-color: #d9f6ee;
   display: flex;
   padding: 6px;
@@ -27,6 +29,8 @@ body {
   transition: all 0.3s linear;
 }
 .swiper-button-prev:hover,
-.swiper-button-next:hover {
+.swiper-button-next:hover,
+.cm-swiper-button-prev:hover,
+.cm-swiper-button-next:hover {
   background-color: #b3eddd;
 }
