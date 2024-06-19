@@ -39,4 +39,25 @@ const GET_ARTICLES_INFO = gql`
   }
 `;
 
-export { GET_COURSES_INFO, GET_ARTICLES_INFO };
+const GET_ALL_COMMENTS = gql`
+  query {
+    comments {
+      id
+      name
+      createDate
+      rating
+      text
+      positivePoint
+      negativePoint
+      slug
+      avatar {
+        url
+      }
+      course {
+        title
+      }
+    }
+  }
+`;
+
+export { GET_COURSES_INFO, GET_ARTICLES_INFO, GET_ALL_COMMENTS };
