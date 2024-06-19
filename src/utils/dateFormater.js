@@ -26,4 +26,23 @@ const getJalaliDate = (timeInput) => {
   return `${day} ${monthName} ${year}`;
 };
 
-export { getJalaliDate };
+// return date in this format 👉🏻 year/month/day
+const getJalaliDate2 = (timeInput) => {
+  const date = new Date(timeInput);
+  const localeDate = date.toLocaleDateString("fa-IR");
+  const splitedDate = localeDate.split("/");
+
+  // year
+  const year = splitedDate[0];
+
+  // month
+  const month =
+    splitedDate[1].length === 1 ? `0${splitedDate[1]}` : splitedDate[1];
+
+  // day
+  const day = splitedDate[2];
+
+  return `${year}/${month}/${day}`;
+};
+
+export { getJalaliDate, getJalaliDate2 };
