@@ -82,7 +82,7 @@ const theme = createTheme({
   typography: {
     fontFamily: [
       "IRANSans",
-      "B Nazanin",
+      "Vazir",
       "-apple-system",
       "BlinkMacSystemFont",
       '"Segoe UI"',
