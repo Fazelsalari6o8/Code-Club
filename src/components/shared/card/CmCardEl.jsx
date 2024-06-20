@@ -88,11 +88,11 @@ function CmCardEl({ comment }) {
       {/* start bottom section */}
       <Box component="div" mt={2}>
         <Typography
-          height="95px"
+          height="90px"
           overflow="hidden"
           //   whiteSpace="nowrap"
           //   textOverflow="ellipsis"
-          fontSize="15px"
+          fontSize="14.5px"
           color="text.text5"
         >
           {comment.text}
@@ -104,7 +104,7 @@ function CmCardEl({ comment }) {
               <Typography
                 component="p"
                 variant="p"
-                fontSize="12px"
+                fontSize="11px"
                 color="text.text5"
                 display="flex"
                 alignItems="center"
@@ -123,7 +123,7 @@ function CmCardEl({ comment }) {
                 <Typography
                   component="p"
                   variant="p"
-                  fontSize="12px"
+                  fontSize="11px"
                   color="text.text5"
                   display="flex"
                   alignItems="center"
