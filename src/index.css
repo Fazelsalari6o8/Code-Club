@@ -1,3 +1,13 @@
+@tailwind base;
+/* change tailwindcss base */
+img,
+video {
+  max-width: none !important;
+}
+
+@tailwind components;
+@tailwind utilities;
+
 * {
   padding: 0;
   margin: 0;
