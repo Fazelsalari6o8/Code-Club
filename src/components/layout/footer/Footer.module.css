@@ -1,53 +1,8 @@
-.footer {
-  width: 100%;
-  height: 407px;
-  background: url("../../../assets/images/bg-footer.svg") no-repeat;
-  background-size: cover;
-}
-
-.inputEmail {
-  width: 276px;
-  height: 48px;
-  border: 1px solid #cbd5e1;
-  border-radius: 8px;
-  margin: 12px 0;
-  padding: 8px 12px;
-  font-size: 1rem;
-  color: #94a3b8;
-}
-.inputEmail:focus {
-  outline: none;
-}
 .buttonEmail {
-  padding: 12px 48px;
-  margin-right: 12px;
-  border: none;
-  border-radius: 16px;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #1a5444;
   background-image: linear-gradient(-45deg, #8ce4cb, #33a987, #8ce4cb);
   background-size: 300%;
-  cursor: pointer;
   transition: all 0.8s;
 }
 .buttonEmail:hover {
   background-position: right;
-}
-
-@media (max-width: 768px) {
-  .inputEmail {
-    width: 100%;
-  }
-  .buttonEmail {
-    margin-right: 0;
-  }
-}
-
-@media (max-width: 1023.5px) {
-  .footer {
-    background: url("../../../assets/images/bg-footer-phone.svg") no-repeat;
-    background-size: cover;
-    height: 666px;
-  }
 }

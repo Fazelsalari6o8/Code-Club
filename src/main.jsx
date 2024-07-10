@@ -21,7 +21,7 @@ import theme from "./mui/theme.js";
 import App from "./App.jsx";
 
 // styles
-import "./styles/index.css";
+import "./index.css";
 
 // apollo client
 const client = new ApolloClient({
