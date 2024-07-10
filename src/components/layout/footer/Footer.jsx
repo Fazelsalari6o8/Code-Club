@@ -83,15 +83,23 @@ function Footer() {
                 variant="Bold"
                 size="24"
                 color="#1a5444"
-                className="mx-3"
+                className="mx-2"
               />{" "}
               توسط{" "}
               <a
                 href="https://fatemeweb.vercel.app"
                 target="_blank"
-                className="mr-[5px]"
+                className="mr-[5px] transition-all duration-200 ease-linear hover:text-primary-700"
               >
                 فاطمه غفاری
+              </a>
+              <span className="mr-[6px]">و</span>
+              <a
+                href="https://t.me/FSPF6810"
+                target="_blank"
+                className="mr-[5px] transition-all duration-200 ease-linear hover:text-primary-700"
+              >
+                فاضل سالاری
               </a>
             </p>
           </div>
