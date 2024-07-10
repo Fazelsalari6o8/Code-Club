@@ -4,9 +4,6 @@ import { useQuery } from "@apollo/client";
 // react-router-dom
 import { Link } from "react-router-dom";
 
-// mui
-import { Box, Container } from "@mui/material";
-
 // swiper
 import { Swiper, SwiperSlide } from "swiper/react";
 import { FreeMode, Navigation } from "swiper/modules";
@@ -23,43 +20,27 @@ import { ArrowLeft, ArrowRight } from "iconsax-react";
 // queries
 import { GET_COURSES_INFO } from "../../graphql/queries.js";
 
-// styles
-import styles from "./Courses.module.css";
-
 function Courses() {
   const { loading, data, error } = useQuery(GET_COURSES_INFO);
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 8, px: 3 }}>
+    <div className="max-w-7xl mx-auto mt-16 px-6">
       <Title text="دوره ها" />
 
-      <Box
-        component="div"
-        display="flex"
-        alignItems="center"
-        justifyContent="space-between"
-        sx={{ userSelect: "none" }}
-      >
-        <Box component="div" display="flex" alignItems="center">
+      <div className="flex items-center justify-between select-none">
+        <div className="flex items-center">
           <div className="swiper-button-prev">
             <ArrowRight size="24" color="#1a5444" />
           </div>
           <div className="swiper-button-next">
             <ArrowLeft size="24" color="#1a5444" />
           </div>
-        </Box>
-        <Link
-          to="/courses"
-          style={{
-            textDecoration: "none",
-            display: "flex",
-            alignItems: "center",
-            color: "#4ca58c",
-          }}
-        >
-          مشاهده بیشتر <ArrowLeft size="18" style={{ marginRight: "4px" }} />
+        </div>
+
+        <Link to="/courses" className="flex items-center text-secondary-700">
+          مشاهده بیشتر <ArrowLeft size="18" className="mr-1" />
         </Link>
-      </Box>
+      </div>
 
       {loading ? (
         <Loader />
@@ -68,7 +49,7 @@ function Courses() {
       ) : (
         data && (
           <Swiper
-            className={styles.mySwiper}
+            className="text-primary-800 mt-4"
             slidesPerView="auto"
             spaceBetween={32}
             dir="rtl"
@@ -81,14 +62,17 @@ function Courses() {
             modules={[Navigation, FreeMode]}
           >
             {data.courses.map((course) => (
-              <SwiperSlide key={course.id} className={styles.card}>
+              <SwiperSlide
+                key={course.id}
+                className="bg-secondary-50 w-80 border border-primary-150 rounded-2xl p-4"
+              >
                 <CardEl course={course} />
               </SwiperSlide>
             ))}
           </Swiper>
         )
       )}
-    </Container>
+    </div>
   );
 }
 
