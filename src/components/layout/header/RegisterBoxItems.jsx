@@ -1,45 +1,26 @@
 // react-router-dom
 import { Link } from "react-router-dom";
 
-// mui
-import { Typography } from "@mui/material";
-
 // iconsax
 import { Profile } from "iconsax-react";
-
-// styles
-import styles from "./RegisterBoxItems.module.css";
 
 function RegisterBoxItems() {
   return (
     <>
-      <Typography
-        component="p"
-        variant="p"
-        // ml={3}
-        // sx={{ display: { xs: "none", md: "block" } }}
-      >
-        <Link to="/login" className={styles.login}>
+      <p>
+        <Link
+          to="/login"
+          className="no-underline text-primary-500 text-base font-medium transition-all duration-[0.3s] hover:text-primary-800"
+        >
           ورود
         </Link>
-      </Typography>
+      </p>
 
-      <Typography
-        component="p"
-        variant="p"
-        bgcolor="primary.500"
-        className={styles.profile}
-        // sx={{
-        //   display: {
-        //     xs: "none",
-        //     md: "block",
-        //   },
-        // }}
-      >
+      <p className="bg-primary-500 w-9 h-9 p-[6px] my-[6px] mr-6 rounded-lg cursor-pointer transition-all duration-[0.3s] hover:bg-primary-600">
         <Link to="/dashboard">
           <Profile size="24" color="#ecfbf6" />
         </Link>
-      </Typography>
+      </p>
     </>
   );
 }

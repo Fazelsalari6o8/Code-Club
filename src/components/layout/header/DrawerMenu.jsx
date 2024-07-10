@@ -2,37 +2,30 @@
 import Menu from "./Menu.jsx";
 import RegisterBoxItems from "./RegisterBoxItems.jsx";
 
-// mui
-import { Drawer, Box } from "@mui/material";
-
-function DrawerMenu({ open, toggleDrawer }) {
+function DrawerMenu({ open, setOpen }) {
   return (
-    <Drawer
-      anchor="right"
-      open={open}
-      onClose={toggleDrawer(false)}
-      sx={{ display: { md: "none" } }}
+    <div
+      className={`flex-1 fixed top-0 right-0 h-dvh w-dvw md:hidden transition-transform duration-[200ms] ${
+        open ? "translate-x-0" : "translate-x-[100%]"
+      }`}
+      onClick={() => setOpen(false)}
     >
-      <Box
-        component="div"
-        sx={{
-          width: "215px",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          padding: "29px 0",
-        }}
+      <div
+        className={`bg-white w-[215px] h-full flex flex-col items-center py-[29px] transition-all duration-[200ms] ${
+          open
+            ? "translate-x-0 shadow-[-1px_0_1000px_900px_#00000027]"
+            : "translate-x-[100%] shadow-[0_0_0_0_#00000007]"
+        }`}
       >
-        <Box component="div" sx={{ display: "flex", alignItems: "center" }}>
+        <div className="flex items-center">
           <RegisterBoxItems />
-        </Box>
-        {/* start menu */}
-        <Box component="nav" sx={{ display: "flex", marginTop: "29px" }}>
+        </div>
+
+        <nav className="flex mt-[29px]">
           <Menu />
-        </Box>
-        {/* end menu */}
-      </Box>
-    </Drawer>
+        </nav>
+      </div>
+    </div>
   );
 }
 

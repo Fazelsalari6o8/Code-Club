@@ -4,59 +4,29 @@ import { Link } from "react-router-dom";
 // components
 import RegisterBoxItems from "./RegisterBoxItems";
 
-// mui
-import { Box, Typography } from "@mui/material";
-
 // iconsax
 import { HambergerMenu, ShoppingCart } from "iconsax-react";
 
-function RegisterBox({ toggleDrawer }) {
+function RegisterBox({ setOpen }) {
   return (
-    <Box
-      component="div"
-      sx={{
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "space-between",
-        height: "48px",
-      }}
-    >
-      <Typography
-        component="p"
-        variant="p"
-        ml={3}
-        sx={{
-          display: {
-            xs: "flex",
-            md: "none",
-          },
-          alignItems: "center",
-          cursor: "pointer",
-        }}
-        onClick={toggleDrawer(true)}
-        dir="rtl"
+    <div className="h-12 flex items-center justify-between">
+      <p
+        className="flex items-center cursor-pointer ml-6 md:hidden"
+        onClick={() => setOpen(true)}
       >
         <HambergerMenu size="24" color="#35816c" />
-      </Typography>
+      </p>
 
-      <Typography
-        component="p"
-        variant="p"
-        ml={3}
-        display="flex"
-        alignItems="center"
-      >
+      <p className="flex items-center ml-6">
         <Link to="/cart" style={{ display: "flex" }}>
           <ShoppingCart size="24" color="#267f65" />
         </Link>
-      </Typography>
-      <Box
-        component="div"
-        sx={{ display: { xs: "none", md: "flex" }, alignItems: "center" }}
-      >
+      </p>
+
+      <div className="hidden md:flex items-center">
         <RegisterBoxItems />
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 }
 
