@@ -1,101 +1,52 @@
 // react-router-dom
 import { Link } from "react-router-dom";
 
-// mui
-import { Box, Grid, Typography } from "@mui/material";
-
 // styles
 import styles from "./Intro.module.css";
 
 function Intro() {
   return (
-    <Box component="div" mt={{ xs: 20, sm: "0" }}>
-      <Grid
-        container
-        xs={12}
-        sm={10}
-        md={8}
-        lg={7}
-        sx={{
-          backgroundColor: {
-            xs: "rgba(255, 255, 255, 0.05)",
-            sm: "rgba(255, 255, 255, 0.1)",
-          },
-          backdropFilter: { xs: "blur(18px)", sm: "blur(30px)" },
-          borderRadius: "32px",
-          padding: { xs: "32px 12px", lg: "32px 40px" },
-          color: "rgba(255, 255, 255, 0.8)",
-        }}
-      >
-        <Grid item xs={12}>
-          <Typography
-            component="h1"
-            variant="h1"
-            fontSize={{ xs: "24px", sm: "28px" }}
-            fontWeight={500}
-            lineHeight={1.5}
-          >
+    <div className="mt-5 sm:mt-0">
+      {/* start grid container */}
+      <div className="bg-[rgba(255,255,255,0.05)] backdrop-blur-[18px] grid grid-cols-12 rounded-[32px] py-8 px-3 text-[rgba(255,255,255,0.8)] sm:grid-cols-10 sm:bg-[rgba(255,255,255,0.1)] sm:backdrop-blur-[30px] md:grid-cols-8 lg:grid-cols-7 lg:py-8 lg:px-10">
+        {/* start grid 1 */}
+        <div className="col-start-1 col-end-13">
+          <h1 className="text-2xl leading-10 font-medium sm:text-[28px]">
             مسیری جدید به سمت توانمندی <br /> برنامه نویسی با
-            <Typography
-              component="span"
-              variant="span"
-              color="primary.600"
-              fontWeight={700}
-              mr={{ xs: "15px", lg: "20px" }}
-            >
+            <span className="text-primary-600 font-bold mr-4 lg:mr-5">
               {"</"}
-            </Typography>
-            <Typography
-              component="span"
-              variant="span"
-              mx="10px"
-              fontWeight={900}
-              className={styles.logoName}
-            >
-              کدکلاب
-            </Typography>
-            <Typography
-              component="span"
-              variant="span"
-              color="primary.600"
-              fontWeight={700}
-            >
-              {">"}
-            </Typography>
-          </Typography>
-        </Grid>
+            </span>
+            <span className={`mx-3 font-black ${styles.logoName}`}>کدکلاب</span>
+            <span className="text-primary-600 font-bold">{">"}</span>
+          </h1>
+        </div>
+        {/* end grid 1 */}
 
-        <Grid item xs={12} mt="12px">
-          <Typography
-            component="p"
-            variant="p"
-            fontSize="1.1rem"
-            className={styles.introDescription}
-          >
-            شروع یک مهارت جدید با دوره های کدکلاب، مانند باز کردن <br />
+        {/* start grid 2 */}
+        <div className="col-start-1 col-end-13 mt-3">
+          <p className="text-lg">
+            شروع یک مهارت جدید با دوره های کدکلاب، مانند باز کردن{" "}
+            <br className="hidden sm:block" />
             درهایی به جهان پر از فرصت های برنامه نویسی است.
-          </Typography>
-        </Grid>
+          </p>
+        </div>
+        {/* end grid 2 */}
 
-        <Grid item xs={12} mt={4}>
-          <Box
-            component="div"
-            sx={{
-              display: { xs: "flex" },
-              justifyContent: "space-between",
-              fontSize: { xs: "0.9rem", sm: "1rem" },
-            }}
-          >
+        {/* start grid 3 */}
+        <div className="col-start-1 col-end-13 mt-8">
+          <div className="flex justify-between text-sm sm:text-base">
             <Link to="/courses" className={styles.coursesBtn}>
               مشاهده دوره ها
             </Link>
             <Link to="/about-us" className={styles.moreInfoBtn}>
               اطلاعات بیشتر
             </Link>
-          </Box>
-        </Grid>
-      </Grid>
-    </Box>
+          </div>
+        </div>
+        {/* end grid 3 */}
+      </div>
+      {/* end grid container */}
+    </div>
   );
 }
 

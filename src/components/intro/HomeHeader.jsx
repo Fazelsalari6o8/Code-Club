@@ -2,54 +2,27 @@
 import Intro from "./Intro";
 import Info from "./Info";
 
-// mui
-import { Box, Container } from "@mui/material";
-
 // images
 import bgIntro from "../../assets/images/bg-header.jpg";
 import bgIntroPhone from "../../assets/images/bg-header-phone.jpg";
 
-// styles
-import styles from "./HomeHeader.module.css";
-
 function HomeHeader() {
   return (
-    <Box
-      component="div"
-      sx={{
-        position: "relative",
-        height: { xs: "735px", sm: "740px" },
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-      }}
-    >
+    <div className="relative h-[735px] flex items-center justify-center sm:h-[740px]">
       <img
         src={bgIntro}
-        style={{ width: "100%", position: "absolute", top: "0", zIndex: "-1" }}
-        className={styles.bgIntro}
+        className={`w-full absolute top-0 h-[740px] hidden sm:block`}
       />
       <img
         src={bgIntroPhone}
-        style={{ width: "100%", position: "absolute", top: "0", zIndex: "-1" }}
-        className={styles.bgIntroPhone}
+        className={`w-full absolute top-0 h-[735px] sm:hidden`}
       />
 
-      <Container
-        maxWidth="lg"
-        sx={{
-          height: "100%",
-          display: "flex",
-          flexDirection: { xs: "column", sm: "row" },
-          alignItems: "center",
-          justifyContent: { xs: "center", sm: "space-between" },
-          zIndex: "100",
-        }}
-      >
+      <div className="max-w-7xl h-full flex flex-col items-center justify-center px-6 pt-28 z-[100] sm:flex-row sm:justify-between sm:pt-0 sm:w-full">
         <Intro />
         <Info />
-      </Container>
-    </Box>
+      </div>
+    </div>
   );
 }
 
