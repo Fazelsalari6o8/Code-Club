@@ -8,7 +8,7 @@ import RegisterBox from "./RegisterBox.jsx";
 import DrawerMenu from "./DrawerMenu.jsx";
 
 // mui
-import { AppBar, Box, Container, Toolbar, Typography } from "@mui/material";
+import { AppBar, Container } from "@mui/material";
 
 // constants
 import { changeCss, menuItem } from "../../../constants/const.js";
@@ -22,75 +22,60 @@ function Header() {
 
   window.addEventListener("scroll", () => changeCss(headerTag.current));
 
-  const toggleDrawer = (newOpen) => () => {
-    setOpen(newOpen);
-  };
-
   return (
-    // start header
-    <AppBar
-      position="fixed"
-      sx={{
-        bgcolor: "#ffffff00",
-        height: { xs: "70px", md: "80px" },
-        boxShadow: "none",
-        mt: { xs: 4, sm: "42px" },
-        transition: "all 0.1s linear",
-      }}
-      ref={headerTag}
-    >
-      <Container maxWidth="lg" sx={{ px: 3, height: "100%" }}>
-        <Toolbar
-          sx={{
-            bgcolor: "primary.50",
-            borderRadius: 32,
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "space-between",
-            flexDirection: { xs: "row-reverse", md: "row" },
-            height: "100%",
-          }}
-        >
-          {/* start logoname */}
-          <Typography
-            component="h1"
-            variant="h1"
-            fontFamily="IRANSans"
-            fontSize="1.5rem"
-            fontWeight="900"
-            className={styles.logoname}
-          >
-            کد کلاب
-          </Typography>
-          {/* end logoname */}
+    <>
+      {/* start header */}
+      <AppBar
+        position="fixed"
+        sx={{
+          bgcolor: "#ffffff00",
+          height: { xs: "70px", md: "80px" },
+          boxShadow: "none",
+          mt: { xs: 4, sm: "42px" },
+          transition: "all 0.1s linear",
+        }}
+        ref={headerTag}
+      >
+        <Container maxWidth="lg" sx={{ px: 3, height: "100%" }}>
+          <div className="bg-primary-50 h-full px-[22px] rounded-[32px] flex items-center justify-between flex-row-reverse md:flex-row">
+            {/* start logoname */}
+            <h1 className={`font-sans text-2xl font-black ${styles.logoname}`}>
+              کد کلاب
+            </h1>
+            {/* end logoname */}
 
-          {/* start navbar */}
-          <Box
-            component="nav"
-            height={24}
-            sx={{ display: { xs: "none", md: "block" } }}
-          >
-            <ul className={styles.ulMenu}>
-              {menuItem.map((item, index) => (
-                <li key={index}>
-                  <NavLink to={item.path}>{item.title}</NavLink>
-                </li>
-              ))}
-            </ul>
-          </Box>
-          {/* end navbar */}
+            {/* start navbar */}
+            <nav className="h-6 hidden md:block">
+              <ul className="list-none flex items-center">
+                {menuItem.map((item, index) => (
+                  <li
+                    key={index}
+                    className="ml-6 rounded-lg relative after:content after:w-0 after:h-[30px] after:inline-block after:bg-primary-500 after:rounded-[50%] after:absolute after:left-1/2 cursor-pointer after:transition-all after:duration-100 hover:after:w-[30px] hover:after:drop-shadow-[-5px 2px 4px bg-primary-500] hover:after:blur-xl"
+                  >
+                    <NavLink
+                      to={item.path}
+                      className="no-underline text-dark-500 p-[5px]"
+                    >
+                      {item.title}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </nav>
+            {/* end navbar */}
 
-          {/* start register box */}
-          <RegisterBox toggleDrawer={toggleDrawer} />
-          {/* end register box */}
+            {/* start register box */}
+            <RegisterBox setOpen={setOpen} />
+            {/* end register box */}
 
-          {/* start drawer Menu */}
-          <DrawerMenu open={open} toggleDrawer={toggleDrawer} />
-          {/* end drawer Menu */}
-        </Toolbar>
-      </Container>
-    </AppBar>
-    // end header
+            {/* start drawer Menu */}
+            <DrawerMenu open={open} setOpen={setOpen} />
+            {/* end drawer Menu */}
+          </div>
+        </Container>
+      </AppBar>
+      {/* end header */}
+    </>
   );
 }
 
