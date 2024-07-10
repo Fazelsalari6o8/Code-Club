@@ -42,9 +42,3 @@ h1 br {
     padding: 12px 38px;
   }
 }
-
-@media (max-width: 767.5px) {
-  .introDescription br {
-    display: none;
-  }
-}
