@@ -1,9 +1,6 @@
 // react-router-dom
 import { Link } from "react-router-dom";
 
-// mui
-import { Box, Typography } from "@mui/material";
-
 // components
 import Button from "../button/Button.jsx";
 
@@ -21,139 +18,60 @@ function CardEl({
 }) {
   return (
     <>
-      <Box
-        component="div"
-        display="flex"
-        justifyContent="space-between"
-        position="relative"
-      >
+      <div className="flex justify-between relative">
         <img
           src={bgCourseIcon}
           alt="bg-icon"
-          style={{
-            position: "absolute",
-            top: "-16px",
-            left: "-16px",
-            borderTopLeftRadius: "16px",
-          }}
+          className="absolute top-[-16px] left-[-16px] rounded-se-2xl"
         />
-        <Box component="div" display="flex" flexDirection="column">
-          <Typography
-            component="p"
-            variant="p"
-            bgcolor="primary.100"
-            width="fit-content"
-            mb="12px"
-            display="flex"
-            alignItems="center"
-            borderRadius="20px"
-            p="4px 8px"
-          >
+
+        <div className="flex flex-col">
+          <p className="bg-primary-100 flex items-center w-fit rounded-[20px] mb-3 py-1 px-2">
             <People size="24" color="#40d3a9" style={{ marginLeft: "6px" }} />
             {e2p(students)}
-          </Typography>
-          <Typography
-            component="p"
-            variant="p"
-            bgcolor="primary.100"
-            width="fit-content"
-            mb="12px"
-            display="flex"
-            alignItems="center"
-            borderRadius="20px"
-            p="4px 8px"
-          >
+          </p>
+
+          <p className="bg-primary-100 flex items-center w-fit rounded-[20px] mb-3 py-1 px-2">
             <Timer1 size="24" color="#40d3a9" style={{ marginLeft: "6px" }} />
             {e2p(time)} ساعت
-          </Typography>
+          </p>
+
           {courseStatus ? (
-            <Typography
-              component="p"
-              variant="p"
-              bgcolor="primary.100"
-              width="fit-content"
-              mb="12px"
-              display="flex"
-              alignItems="center"
-              borderRadius="20px"
-              p="4px 8px"
-            >
-              <Microphone2
-                size="24"
-                color="#40d3a9"
-                style={{ marginLeft: "6px" }}
-              />
+            <p className="bg-primary-100 flex items-center w-fit rounded-[20px] mb-3 py-1 px-2">
+              <Microphone2 size="24" color="#40d3a9" className="ml-[6px]" />
               اتمام ضبط
-            </Typography>
+            </p>
           ) : (
-            <Typography
-              component="p"
-              variant="p"
-              bgcolor="primary.100"
-              width="fit-content"
-              mb="12px"
-              display="flex"
-              alignItems="center"
-              borderRadius="20px"
-              p="4px 8px"
-            >
-              <Microphone2
-                size="24"
-                color="#40d3a9"
-                style={{ marginLeft: "6px" }}
-              />
+            <p className="bg-primary-100 flex items-center w-fit rounded-[20px] mb-3 py-1 px-2">
+              <Microphone2 size="24" color="#40d3a9" className="ml-[6px]" />
               درحال ضبط
-            </Typography>
+            </p>
           )}
-        </Box>
+        </div>
 
-        <Box component="div" zIndex="1">
+        <div className="z-[1]">
           <img src={image.url} alt={title} />
-        </Box>
-      </Box>
+        </div>
+      </div>
 
-      <Typography
-        component="p"
-        variant="p"
-        textAlign="right"
-        m="26px 0 12px"
-        fontSize="1.1rem"
-        fontWeight={700}
-      >
+      <p className="text-right mt-7 mb-3 text-lg font-bold">
         دوره جامع {title}
-      </Typography>
+      </p>
 
-      <Box
-        component="div"
-        mt="12px"
-        display="flex"
-        justifyContent="space-between"
-      >
+      <div className="flex justify-between mt-3">
         <Button text="ثبت نام" fontWeight={700} />
 
-        <Box component="div" textAlign="right">
-          <Typography
-            component="p"
-            variant="p"
-            fontSize="1.1rem"
-            fontWeight={700}
-          >
-            {sp(price)} تومان
-          </Typography>
+        <div className="text-right">
+          <p className="text-lg font-bold">{sp(price)} تومان</p>
+
           <Link
             to={`/courses/${slug}`}
-            style={{
-              textDecoration: "none",
-              color: "#4ca58c",
-              fontSize: "0.8rem",
-              display: "flex",
-              alignItems: "center",
-            }}
+            className="text-secondary-700 text-xs flex items-center"
           >
-            مشاهده بیشتر <ArrowLeft size="18" style={{ marginRight: "4px" }} />
+            مشاهده بیشتر <ArrowLeft size="18" className="mr-1" />
           </Link>
-        </Box>
-      </Box>
+        </div>
+      </div>
     </>
   );
 }
