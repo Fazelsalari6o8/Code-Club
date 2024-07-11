@@ -1,50 +1,20 @@
-// mui
-import { Box, Typography } from "@mui/material";
-
 // images
 import vector from "../../../../assets/images/aboutUsImages/Vector.svg";
 
 function WhyCodeClubCard({ title, text, id }) {
   return (
-    <Box
-      component="div"
-      mt={{ md: id % 2 !== 0 && "43px" }}
-      mb={{ xs: 3, md: 0 }}
-      display="flex"
-      alignItems={"center"}
-      position="relative"
-      width="269px"
-      height="239.11px"
+    <div
+      className={`flex items-center w-[269px] h-[239.11px] relative mb-6 md:mb-0 ${
+        id % 2 !== 0 && "md:mt-11"
+      }`}
     >
-      <img
-        src={vector}
-        alt="bgpic"
-        style={{ position: "absolute", top: "0", left: "0", zIndex: "-1" }}
-      />
-      <Box component="div">
-        <Typography
-          component="p"
-          variant="p"
-          fontSize="18px"
-          fontWeight={700}
-          color="text.text0"
-          textAlign="center"
-        >
-          {title}
-        </Typography>
+      <img src={vector} alt="bgpic" className="absolute top-0 left-0 z-[-1]" />
+      <div>
+        <p className="text-lg font-bold text-text-text0 text-center">{title}</p>
 
-        <Typography
-          component="p"
-          variant="p"
-          fontSize="13.5px"
-          color="primary.800"
-          textAlign="center"
-          mt={1}
-        >
-          {text}
-        </Typography>
-      </Box>
-    </Box>
+        <p className="text-sm text-primary-800 text-center mt-2">{text}</p>
+      </div>
+    </div>
   );
 }
 

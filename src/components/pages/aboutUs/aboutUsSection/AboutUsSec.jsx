@@ -1,51 +1,27 @@
-// mui
-import { Box, Typography } from "@mui/material";
-
 // images
 import aboutUsPic from "../../../../assets/images/aboutUsImages/aboutUs.png";
 
 function AboutUsSec() {
   return (
-    <Box
-      component="div"
-      py={{ xs: "0", md: "24.35px" }}
-      mx={{ lg: "72.5px" }} 
-      display="flex"
-      alignItems="center"
-      justifyContent="space-between"
-      flexDirection={{ xs: "column", md: "row" }}
-    >
-      <Box component="div">
-        <Typography
-          component="h4"
-          variant="h5"
-          fontSize={{ xs: "20px", md: "24px" }}
-          fontWeight={700}
-          color="primary.800"
-        >
+    <div className="flex flex-col items-center justify-between md:flex-row md:py-6 lg:mx-[72.5px]">
+      <div>
+        <h4 className="text-primary-800 text-xl font-bold md:text-2xl">
           درباره ما
-        </Typography>
+        </h4>
 
-        <Typography
-          component="p"
-          variant="p"
-          fontSize={{ xs: "14px", md: "16px" }}
-          color="text.text5"
-          mt={2}
-          width={{ xs: "382px", sm: "auto", md: "630px" }}
-        >
+        <p className="text-text-text5 w-96 mt-4 text-sm sm:w-auto md:w-[630px] md:text-base">
           خوش آمدید به کدکلاب، جایی که توانایی‌ها شما به افق های جدیدی گسترده
           می‌شود. ما در کدکلاب باور داریم که هر فرد، با دسترسی به منابع آموزشی
           مناسب، می‌تواند توانمندی‌های خود را بهبود دهد و در دنیای پرتلاش فناوری
           یک گام جلوتر از دیگران باشد. کدکلاب را انتخاب کنید، یادگیری را تجربه
           کنید و به همراه ما به سوی دنیای نوآوری و فناوری بروید.
-        </Typography>
-      </Box>
+        </p>
+      </div>
 
-      <Box component="div" my={{ xs: 4, md: 0 }}>
+      <div className="my-8 md:my-0">
         <img src={aboutUsPic} alt="about us pic" />
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 }
 

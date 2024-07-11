@@ -3,32 +3,24 @@ import AboutUsSec from "./aboutUsSection/AboutUsSec.jsx";
 import WhoAreWe from "./whoAreWeSection/WhoAreWe.jsx";
 import WhyCodeClub from "./whyCodeClub/WhyCodeClub.jsx";
 
-// mui
-import { Box, Container } from "@mui/material";
-
 // images
 import bottomArrow from "../../../assets/images/aboutUsImages/bottomArrow.png";
 
 function AboutUs() {
   return (
-    <Container
-      maxWidth="lg"
-      sx={{
-        mt: { xs: 7, md: "92px", position: "relative" },
-      }}
-    >
-      <Box component="div" display={{ xs: "none", md: "block" }}>
+    <div className="max-w-7xl mx-auto px-6 mt-14 relative md:mt-[92px]">
+      <div className="hidden md:block">
         <img
           src={bottomArrow}
           alt="bottomArrow"
-          style={{ position: "absolute", top: "258px", right: "450px" }}
+          className="absolute top-64 right-[450px]"
         />
-      </Box>
+      </div>
 
       <AboutUsSec />
       <WhoAreWe />
       <WhyCodeClub />
-    </Container>
+    </div>
   );
 }
 
