@@ -26,8 +26,8 @@ export default {
     },
     extend: {
       backgroundImage: {
-        footerMd: "url('./src/assets/images/bg-footer.svg')",
-        footerXs: "url('./src/assets/images/bg-footer-phone.svg')",
+        footerMd: "url('/images/bg-footer.svg')",
+        footerXs: "url('/images/bg-footer-phone.svg')",
       },
       colors: {
         primary: {
