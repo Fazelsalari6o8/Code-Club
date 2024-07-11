@@ -11,10 +11,8 @@ import sanitize from "sanitize-html";
 import Loader from "../shared/loader/Loader.jsx";
 import Error from "../shared/error/Error.jsx";
 import Title from "../shared/title/Title.jsx";
+import Button from "../shared/button/Button.jsx";
 import Tags from "./tags/Tags.jsx";
-
-// mui
-import { Box, Container, Typography } from "@mui/material";
 
 // iconsax
 import { ArrowLeft, Eye } from "iconsax-react";
@@ -28,13 +26,12 @@ import { GET_ARTICLES_INFO } from "../../graphql/queries.js";
 
 // styles
 import styles from "./Articles.module.css";
-import Button from "../shared/button/Button.jsx";
 
 function Articles() {
   const { loading, data, error } = useQuery(GET_ARTICLES_INFO);
 
   return (
-    <Container maxWidth="lg" sx={{ mt: 8, px: 3 }}>
+    <div className="max-w-7xl mx-auto mt-16 px-6">
       <Title text="مقالات" />
 
       {loading ? (
@@ -43,334 +40,187 @@ function Articles() {
         <Error />
       ) : (
         data && (
-          <Box
-            component="div"
-            mt={4}
-            display="flex"
-            flexDirection={{ xs: "column", lg: "row" }}
-            alignItems={{ md: "center" }}
-            gap={{ xs: "24px", lg: "40px" }}
-          >
+          <div className="flex flex-col gap-6 mt-8 md:items-center lg:flex-row lg:gap-10">
             {/* start right section */}
-            <Box
-              component="div"
-              width={{ xs: "auto", md: "608px" }}
-              height={{ xs: "330px", md: "494px" }}
-              padding={{ xs: "16px", lg: "24px" }}
-              borderRadius={{ xs: "16px", md: "32px" }}
-              bgcolor="secondary.50"
-              boxShadow={{
-                xs: "0 5.03px 9.42px 0 #40d3a926",
-                md: "0 8px 15px 0 #40d3a926",
-              }}
-            >
-              <Box component="div" display="flex" justifyContent="center">
+            <div className="bg-secondary-50 w-auto h-[330px] p-4 rounded-2xl shadow-[0_5.03px_9.42px_0_#40d3a926] md:w-[608px] md:h-[494px] md:rounded-[32px] md:shadow-lg md:shadow-[#40d3a926] lg:p-6">
+              <div className="flex justify-center">
                 <img
                   src={data.articles[0].cover1.url}
-                  className={styles.cover1}
                   alt="cover 1"
+                  className={`rounded-2xl max-md:w-[350px] max-md:h-32 max-md:rounded-lg ${styles.cover1}`}
                 />
-              </Box>
+              </div>
 
-              <Box
-                component="div"
-                display="flex"
-                alignItems="center"
-                justifyContent="space-between"
-                fontSize={{ xs: "12px", md: "14px" }}
-                mt={{ xs: 2, md: 3 }}
-              >
-                <Box component="p" color="primary.500">
+              <div className="flex items-center justify-between text-xs mt-4 md:text-sm md:mt-6">
+                <p className="text-primary-500">
                   {getJalaliDate(data.articles[0].createDate)}
-                </Box>
+                </p>
 
-                <Box component="p" display="flex" alignItems="center">
+                <p className="flex items-center">
                   <Eye
                     size="18"
                     color="#40d3a9"
-                    style={{ marginLeft: "4px" }}
-                    className={styles.eyeIcon}
+                    className="w-[18px] h-[18px] ml-1 max-md:w-[11.31px] max-md:h-[11.31px]"
                   />
                   {e2p(data.articles[0].seen)}
-                </Box>
-              </Box>
+                </p>
+              </div>
 
-              <Typography
-                component="h4"
-                variant="h6"
-                fontSize={{ xs: "16px", md: "18px" }}
-                fontWeight={700}
-                color="text.text5"
-                mt={{ xs: 1, md: 3 }}
-              >
+              <h4 className="text-text-text5 text-base font-bold mt-2 md:text-lg md:mt-6">
                 {data.articles[0].title}
-              </Typography>
+              </h4>
 
-              <Typography
-                component="p"
-                variant="p"
-                height={{ xs: "60px", md: "81px" }}
-                fontSize="12px"
-                color="text.text5"
-                overflow="hidden"
-                mt={{ xs: "6px", md: 2 }}
+              <p
                 dangerouslySetInnerHTML={{
                   __html: sanitize(data.articles[0].textContent.html),
                 }}
-              ></Typography>
+                className="h-[60px] text-xs overflow-hidden mt-[6px] md:h-20 md:mt-4"
+              ></p>
 
-              <Box
-                component="div"
-                display="flex"
-                alignItems="center"
-                justifyContent="space-between"
-                marginTop={{ xs: "12px", md: "24px" }}
-                fontSize="12px"
-              >
-                <Box component="ul" display="flex">
+              <div className="flex items-center justify-between mt-3 text-xs md:mt-6">
+                <ul className="flex">
                   {data.articles[0].tag.map((item, index) => (
                     <Tags item={item} key={index} />
                   ))}
-                </Box>
+                </ul>
 
-                <Link
-                  to="/"
-                  style={{
-                    color: "#4ca58c",
-                    display: "flex",
-                    alignItems: "center",
-                    textDecoration: "none",
-                  }}
-                >
+                <Link to="/" className="text-secondary-700 flex items-center">
                   مشاهده بیشتر
-                  <ArrowLeft size="18" style={{ marginRight: "4px" }} />
+                  <ArrowLeft size="18" className="mr-1" />
                 </Link>
-              </Box>
-            </Box>
+              </div>
+            </div>
             {/* end right section */}
 
             {/* start left section */}
-            <Box component="div">
+            <div>
               {/* start left top section */}
-              <Box
-                component="div"
-                p={{ xs: "16px", md: "16px 24px" }}
-                bgcolor="secondary.50"
-                borderRadius={{ xs: "16px", md: "32px" }}
-                display="flex"
-                flexDirection={{ xs: "column", md: "row" }}
-                alignItems="center"
-                boxShadow={{
-                  xs: "0 5.03px 9.42px 0 #40d3a926",
-                  md: "0 8px 15px 0 #40d3a926",
-                }}
-              >
+              <div className="bg-secondary-50 flex flex-col items-center rounded-2xl p-4 shadow-[0_5.03px_9.42px_0_#40d3a926] md:flex-row md:rounded-[32px] md:py-4 md:px-6 md:shadow-lg md:shadow-[#40d3a926]">
                 <img
                   src={data.articles[1].cover1.url}
-                  className={styles.cover2}
                   alt="cover 2"
+                  className="max-md:hidden"
                 />
                 <img
                   src={data.articles[1].cover2.url}
-                  className={styles.cover2M}
                   alt="cover 2"
+                  className={`md:hidden ${styles.cover2M}`}
                 />
 
-                <Box component="div" mr={{ xs: 0, md: 3 }} width="100%">
-                  <Box
-                    component="div"
-                    display="flex"
-                    flexDirection={{ xs: "row-reverse", md: "row" }}
-                    alignItems="center"
-                    justifyContent="space-between"
-                    fontSize="13px"
-                    mt={{ xs: 2, md: 0 }}
-                  >
-                    <Box component="p" display="flex" alignItems="center">
+                <div className="w-full md:mr-6">
+                  <div className="flex flex-row-reverse items-center justify-between text-xs mt-4 md:flex-row md:text-sm md:mt-0">
+                    <p className="flex items-center">
                       <Eye
                         size="18"
                         color="#40d3a9"
-                        style={{ marginLeft: "4px" }}
+                        className="w-[18px] h-[18px] ml-1 max-md:w-[11.31px] max-md:h-[11.31px]"
                       />
                       {e2p(data.articles[1].seen)}
-                    </Box>
+                    </p>
 
-                    <Box component="p" color="primary.500">
+                    <div className="text-primary-500">
                       {getJalaliDate(data.articles[1].createDate)}
-                    </Box>
-                  </Box>
+                    </div>
+                  </div>
 
-                  <Typography
-                    component="h4"
-                    variant="h6"
-                    fontSize={{ xs: "16px", md: "14px" }}
-                    fontWeight={700}
-                    color="text.text5"
-                    mt={2}
-                  >
+                  <h4 className="text-text-text5 font-bold mt-4 md:text-sm">
                     {data.articles[1].title}
-                  </Typography>
+                  </h4>
 
-                  <Typography
-                    component="p"
-                    variant="p"
-                    color="text.text5"
-                    height="81px"
-                    fontSize="12px"
-                    textOverflow="ellipsis"
-                    overflow="hidden"
-                    mt={2}
+                  <p
+                    className="text-text-text5 h-20 text-xs overflow-hidden mt-4"
                     dangerouslySetInnerHTML={{
                       __html: sanitize(data.articles[1].textContent.html),
                     }}
-                  ></Typography>
+                  ></p>
 
-                  <Box
-                    component="div"
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="space-between"
-                    fontSize="12px"
-                    mt={2}
-                  >
-                    <Box component="ul" display="flex">
+                  <div className="flex items-center justify-between text-xs mt-4">
+                    <ul className="flex">
                       {data.articles[1].tag.map((item, index) => (
                         <Tags item={item} key={index} />
                       ))}
-                    </Box>
+                    </ul>
 
                     <Link
                       to="/"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        textDecoration: "none",
-                        color: "#4ca58c",
-                      }}
+                      className="flex items-center text-secondary-700"
                     >
                       مشاهده بیشتر
-                      <ArrowLeft size="18" style={{ marginRight: "4px" }} />
+                      <ArrowLeft size="18" className="mr-1" />
                     </Link>
-                  </Box>
-                </Box>
-              </Box>
+                  </div>
+                </div>
+              </div>
               {/* end left top section */}
 
               {/* start left bottom section */}
-              <Box
-                component="div"
-                p={{ xs: "16px", md: "16px 24px" }}
-                mt={3}
-                bgcolor="secondary.50"
-                borderRadius={{ xs: "16px", md: "32px" }}
-                display="flex"
-                flexDirection={{ xs: "column", md: "row" }}
-                alignItems="center"
-                boxShadow={{
-                  xs: "0 5.03px 9.42px 0 #40d3a926",
-                  md: "0 8px 15px 0 #40d3a926",
-                }}
-              >
+              <div className="bg-secondary-50 flex flex-col items-center rounded-2xl mt-6 p-4 shadow-[0_5.03px_9.42px_0_#40d3a926] md:flex-row md:rounded-[32px] md:py-4 md:px-6 md:shadow-lg md:shadow-[#40d3a926]">
                 <img
                   src={data.articles[2].cover1.url}
-                  className={styles.cover3}
                   alt="cover 3"
+                  className={`max-md:hidden`}
                 />
                 <img
                   src={data.articles[2].cover2.url}
-                  className={styles.cover3M}
                   alt="cover 3"
+                  className={`md:hidden ${styles.cover3M}`}
                 />
 
-                <Box component="div" mr={{ xs: 0, md: 3 }} width="100%">
-                  <Box
-                    component="div"
-                    display="flex"
-                    flexDirection={{ xs: "row-reverse", md: "row" }}
-                    alignItems="center"
-                    justifyContent="space-between"
-                    fontSize="13px"
-                    mt={{ xs: 2, md: 0 }}
-                  >
-                    <Box component="p" display="flex" alignItems="center">
+                <div className="w-full md:mr-6">
+                  <div className="flex flex-row-reverse items-center justify-between text-xs mt-4 md:flex-row md:text-sm md:mt-0">
+                    <p className="flex items-center">
                       <Eye
                         size="18"
                         color="#40d3a9"
-                        style={{ marginLeft: "4px" }}
+                        className="w-[18px] h-[18px] ml-1 max-md:w-[11.31px] max-md:h-[11.31px]"
                       />
                       {e2p(data.articles[2].seen)}
-                    </Box>
+                    </p>
 
-                    <Box component="p" color="primary.500">
+                    <p className="text-primary-500">
                       {getJalaliDate(data.articles[2].createDate)}
-                    </Box>
-                  </Box>
+                    </p>
+                  </div>
 
-                  <Typography
-                    component="h4"
-                    variant="h6"
-                    fontSize={{ xs: "16px", md: "15px" }}
-                    fontWeight={700}
-                    color="text.text5"
-                    mt={{ xs: 1, md: 2 }}
-                  >
+                  <h4 className="text-text-text5 font-bold mt-2 md:text-sm md:mt-4">
                     {data.articles[2].title}
-                  </Typography>
+                  </h4>
 
-                  <Typography
-                    component="p"
-                    variant="p"
-                    color="text.text5"
-                    height={{ xs: "60px", md: "81px" }}
-                    fontSize="12px"
-                    textOverflow="ellipsis"
-                    overflow="hidden"
-                    mt={{ xs: "6px", md: 2 }}
+                  <p
+                    className="text-text-text5 h-20 text-xs overflow-hidden mt-4"
                     dangerouslySetInnerHTML={{
                       __html: sanitize(data.articles[2].textContent.html),
                     }}
-                  ></Typography>
+                  ></p>
 
-                  <Box
-                    component="div"
-                    display="flex"
-                    alignItems="center"
-                    justifyContent="space-between"
-                    fontSize="12px"
-                    mt={{ xs: "12px", md: 2 }}
-                  >
-                    <Box component="ul" display="flex">
+                  <div className="flex items-center justify-between text-xs mt-3 md:mt-4">
+                    <ul className="flex">
                       {data.articles[2].tag.map((item, index) => (
                         <Tags item={item} key={index} />
                       ))}
-                    </Box>
+                    </ul>
 
                     <Link
                       to="/"
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        textDecoration: "none",
-                        color: "#4ca58c",
-                      }}
+                      className="flex items-center text-secondary-700"
                     >
                       مشاهده بیشتر
-                      <ArrowLeft size="18" style={{ marginRight: "4px" }} />
+                      <ArrowLeft size="18" className="mr-1" />
                     </Link>
-                  </Box>
-                </Box>
-              </Box>
+                  </div>
+                </div>
+              </div>
               {/* end left bottom section */}
-            </Box>
+            </div>
             {/* end left section */}
-          </Box>
+          </div>
         )
       )}
 
-      <Box component="div" mt={{ xs: 2, md: 4 }} textAlign="center">
+      <div className="text-center mt-4 md:mt-8">
         <Button text="مشاهده همه" link="articles" />
-      </Box>
-    </Container>
+      </div>
+    </div>
   );
 }
 
