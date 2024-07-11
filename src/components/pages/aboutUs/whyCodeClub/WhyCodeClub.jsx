@@ -1,9 +1,6 @@
 // components
 import WhyCodeClubCard from "./WhyCodeClubCard.jsx";
 
-// mui
-import { Box, Typography } from "@mui/material";
-
 // const
 import { whyCodeClubCard as cardContent } from "../../../../constants/const.js";
 
@@ -13,32 +10,14 @@ import bottomLeftArrow from "../../../../assets/images/aboutUsImages/bottomLeftA
 
 function WhyCodeClub() {
   return (
-    <Box component="div" display="flex" justifyContent="center">
-      <Box
-        component="div"
-        position="relative"
-        width={{ xs: "360px", md: "100%" }}
-      >
-        <Typography
-          component="h4"
-          variant="h5"
-          fontSize={{ xs: "20px", md: "24px" }}
-          fontWeight={700}
-          textAlign="center"
-          color="primary.800"
-        >
+    <div className="flex justify-center">
+      <div className="relative w-[360px] md:w-full">
+        <h4 className="text-primary-800 text-center text-xl font-bold md:text-2xl">
           چرا کدکلاب؟
-        </Typography>
+        </h4>
 
-        <Box
-          component="div"
-          display="flex"
-          alignItems={{ xs: "center", md: "start" }}
-          justifyContent="space-between"
-          flexDirection={{ xs: "column", md: "row" }}
-          height={{ md: "282.11px" }}
-          mt={3}
-        >
+        {/* start cards */}
+        <div className="flex flex-col items-center justify-between mt-6 md:flex-row md:items-start md:h-[282.11px]">
           {cardContent.map((item) => (
             <WhyCodeClubCard
               title={item.title}
@@ -47,48 +26,24 @@ function WhyCodeClub() {
               key={item.id}
             />
           ))}
-        </Box>
+        </div>
+        {/* end cards */}
 
-        <Box
-          component="div"
-          width={{ xs: "78.54px", md: "120px" }}
-          height={{ xs: "16.59px", md: "25.35px" }}
-          position="absolute"
-          top={{ xs: "255.4px", md: "60px" }}
-          right={{ xs: "300.81px", md: "231.97px" }}
-          display={{ xs: "block", md: "none", lg: "block" }}
-          sx={{ transform: { xs: "rotate(-110deg)", md: "none" } }}
-        >
+        {/* start arrow */}
+        <div className="block w-[78.54px] h-[16.59px] absolute top-64 right-[300.81px] rotate-[-110deg] md:hidden md:w-[120px] md:h-[25.35px] md:top-[60px] md:right-[231.97px] md:rotate-0 lg:block">
           <img src={topLeftArrow} alt="top left arrow" />
-        </Box>
+        </div>
 
-        <Box
-          component="div"
-          width={{ xs: "84.15px", md: "120px" }}
-          height={{ xs: "17.78px", md: "25.35px" }}
-          position="absolute"
-          top={{ xs: "534.44px", md: "242px" }}
-          right={{ xs: "47.75px", md: "548.93px" }}
-          display={{ xs: "block", md: "none", lg: "block" }}
-          sx={{ transform: { xs: "rotate(-86.52deg)", md: "none" } }}
-        >
+        <div className="block w-[84.15px] h-[17.78px] absolute top-[534.44px] right-12 rotate-[-86.52deg] md:hidden md:w-[120px] md:h-[25.35px] md:top-[242px] md:right-[548.93px] md:rotate-0 lg:block">
           <img src={bottomLeftArrow} alt="bottom left arrow" />
-        </Box>
+        </div>
 
-        <Box
-          component="div"
-          width={{ xs: "81.36px", md: "120px" }}
-          height={{ xs: "17.19px", md: "25.35px" }}
-          position="absolute"
-          top={{ xs: "795px", md: "66px" }}
-          right={{ xs: "300.81px", md: "858.97px" }}
-          display={{ xs: "block", md: "none", lg: "block" }}
-          sx={{ transform: { xs: "rotate(-110deg)", md: "none" } }}
-        >
+        <div className="block w-[81.36px] h-[17.19px] absolute top-[795px] right-[300.81px] rotate-[-110deg] md:hidden md:w-[120px] md:h-[25.35px] md:top-[66px] md:right-[858.97px] md:rotate-0 lg:block">
           <img src={topLeftArrow} alt="top left arrow 2" />
-        </Box>
-      </Box>
-    </Box>
+        </div>
+        {/* end arrow */}
+      </div>
+    </div>
   );
 }
 
