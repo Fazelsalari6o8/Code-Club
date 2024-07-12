@@ -1,5 +1,5 @@
 /* start add fonts */
-@font-face {
+/* @font-face {
   font-family: "IRANSans";
   src: local("IRANSans"),
     url("./assets/fonts/IRANSans/IRANSans.ttf") format(truetype),
@@ -10,7 +10,7 @@
   font-family: "Vazir";
   src: local("Vazir"), url("./assets/fonts/Vazir/Vazir.ttf") format(truetype),
     url("./assets/fonts/Vazir/Vazir.woff") format(woff);
-}
+} */
 /* end add fonts */
 
 @tailwind base;
