@@ -1,8 +1,4 @@
-# React + Vite
+A site developed with React.js, which is related to programming courses and was designed by [Fatemeh Ghafari](https://fatemeweb.vercel.app) and coded by [Fazel Salaripoor](https://t.me/FSPF6810).
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Code Club](https://codeclub-ui.vercel.app) in Vercel.
+[Code Club](https://codeclub-ui.netlify.app) in Netlify.
