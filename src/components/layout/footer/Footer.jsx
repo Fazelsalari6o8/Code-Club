@@ -77,7 +77,7 @@ function Footer() {
 
           {/* start copyright */}
           <div className="col-start-1 col-end-13 h-6 mt-8">
-            <p className="text-[0.95rem] flex items-center justify-center">
+            <p className="text-sm flex items-center justify-center">
               طراحی شده با{" "}
               <Heart
                 variant="Bold"
